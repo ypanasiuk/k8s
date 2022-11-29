@@ -1,0 +1,19 @@
+apiVersion : v1
+kind: Pod
+metadata:
+  name: pod-app
+  labels:
+    env: prod
+    app: main
+    tier: front
+    owner: ypanasiuk
+spec:
+  containers:
+    - name: cont-apache
+      image: nginx:latest
+      ports: 
+        - containerPort: 80
+    - name: cont-api
+      image: tomcat:8.5.38
+      ports: 
+        - containerPort: 8080

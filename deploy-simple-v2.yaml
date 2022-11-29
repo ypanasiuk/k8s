@@ -1,0 +1,25 @@
+apiVersion : apps/v1 
+kind: Deployment
+metadata:
+  name: my-web-deployment-replicas
+  labels:
+    app: my-k8s-app
+    env: prod
+    app: main
+    tier: front
+    owner: ypanasiuk
+spec: 
+  replicas: 3 
+  selector: 
+    matchLabels: 
+      project: app9
+  template: 
+    metadata: 
+      labels: 
+        project: app9
+    spec: 
+      containers:
+        - name: app-cont
+          image: httpd:latest
+          ports: 
+            - containerPort: 80
